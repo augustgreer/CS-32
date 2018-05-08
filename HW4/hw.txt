@@ -1,0 +1,11 @@
+2. The insert function calls the doInsertOrUpdate function which then calls the find function to determine if the key already exists on the map. The find function uses the != operator to compare objects of coord type which is not explicitly defined by the user causing a compilation error.
+
+3. b) We could not have solved the problem without the 2 parameter version because there needs to be a way to communicate between the recursive calls of the function to keep track of the path. Since the one-parameter list all (and two-parameter) are void, we cannot return a string after each call so the previous chain can use it. Thus, the version with a path parameter is necessary.
+
+4. a) The time complexity of the algorithm hasCommunicatedWith is )(N^3). There are 3 loops within each other that all have a maximum run count of N. Ignoring the trivial operation inside the loops, that makes N x N x N = N^3
+
+b) The change to the second loop does not affect anything, because the maximum value i could have is N, so we consider the worst-case. The change at the end of the second loop only affects the coefficient associated with that loop which, because the Big O ignores coefficients, does not affect the time complexity. Thus, it is still O(N^3)
+
+5. There is one main loop that runs N times. Within each loop, get, insert, erase, and swap are called various amounts of times depending on the boolean values going into the if statement. Each function call may loop up to N times within the loop. This means that worst case, the time complexity is N*(N + ...(some number of Ns) ... + N). This is equal to (some constant) * n^2. Dropping the coefficient, the big O is O(N^2).
+
+ 
